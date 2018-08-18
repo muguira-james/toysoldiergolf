@@ -41,3 +41,5 @@ Here is a short list of the software
 App.js - main app and starting point
 
 ShowMap.js - all things about the map
+
+!(ToySoldierGolf)[./toysoldiergolf.png]
