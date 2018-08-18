@@ -1,11 +1,13 @@
+
+
 This is an example of how to use React-Leaflet
 
-The code opens over a golf course. It shows flag markers and players arranged around the 1, 2 and 4 holes.
+The code opens over a golf course. It shows flag markers and players arranged around the 1, 2 and 4 holes. The course is the Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
 
 If you click on a player (one of the toy soldiers) you can see their name.
 
 Tech stack:
-
+ 
 React
 
 React-Leaflet
