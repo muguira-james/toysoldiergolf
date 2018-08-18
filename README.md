@@ -42,4 +42,4 @@ App.js - main app and starting point
 
 ShowMap.js - all things about the map
 
-!(ToySoldierGolf)[./toysoldiergolf.png]
+![ToySoldierGolf](./toysoldiergolf.png)
