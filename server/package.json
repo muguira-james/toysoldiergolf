@@ -1,5 +1,5 @@
 {
-  "name": "apollo-server-subscription-setup-example",
+  "name": "apollo-server-subscription-setup-for-toysoldiers",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node index.js"
   },
   "keywords": [],
-  "author": "“Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de)",
+  "author": "James Muguira",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.0.0-rc.0",

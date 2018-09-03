@@ -4,7 +4,7 @@
 
 The code opens over a golf course. It shows flag markers and players arranged around different holes. The course is the Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
 
-The players are represented by the toy soldier icons.  The golf course drawn from OpenStreet Map sources.  There is a lot you can do with OpenStreet Map.  This uses a VERY 
+The players are represented by the toy soldier icons.  The golf course is drawn from OpenStreet Map sources.  There is a lot you can do with OpenStreet Map.  This uses a VERY 
 plain map tile set.
 
 If you click on a player (one of the toy soldiers) you can see their name.
