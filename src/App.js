@@ -1,68 +1,84 @@
+/*
+this project is a create-react-app project.
+
+That is important - I only use ES5 syntax.  NO decorators (i.e. no '@Observer' syntax)
+
+This is some Graphql magic that happens in index.js.
+*/
+
 import React from 'react';
+import gql from 'graphql-tag';
 
-import {decorate, observable, action} from "mobx"
-
+import { Query } from 'react-apollo';
 
 import ShowMap from './ShowMap'
 //
-// as you can see from this structure the players are on hole {1, 2, 3, 4}
-const thePlayers = [
-  { FirstName: "Joan", LastName: "Jet", ID: 1, Hole: 1, HoleLocation: "TEE" },
-  { FirstName: "Ruth", LastName: "Crist", ID: 2, Hole: 1, HoleLocation: "TEE" },
-  { FirstName: "Beth", LastName: "Flick", ID: 3, Hole: 1, HoleLocation: "TEE" },
-  { FirstName: "Julie", LastName: "Ant", ID: 4, Hole: 1, HoleLocation: "FWY" },
-  { FirstName: "Ginny", LastName: "Grey", ID: 5, Hole: 1, HoleLocation: "FWY" },
-  { FirstName: "Paula", LastName: "Lamb", ID: 6, Hole: 1, HoleLocation: "GRN" },
-  { FirstName: "Ingid", LastName: "Jones", ID: 7, Hole: 2, HoleLocation: "TEE" },
-  { FirstName: "Kelly", LastName: "Smith", ID: 8, Hole: 2, HoleLocation: "FWY" },
-  { FirstName: "Eilean", LastName: "Rams", ID: 9, Hole: 2, HoleLocation: "GRN" },
-  { FirstName: "Barb", LastName: "Sharp", ID: 10, Hole: 4, HoleLocation: "FWY" },
-  { FirstName: "Carol", LastName: "Adams", ID: 11, Hole: 4, HoleLocation: "FWY" },
-  { FirstName: "Faith", LastName: "Hope", ID: 12, Hole: 4, HoleLocation: "GRN" }
-]
+// DevTools gives us some noce debug tools in the browser
+import DevTools from 'mobx-react-devtools';
 
+// 
+// The global state store.
+//
+// This holds all the player info.  It is filled by an initial call to GraphQL
+// It provides Mobx actions to getPlayers, addPlayers, updatePlayers
+import store from './Store'
+
+//
+// this is the initial call to get players
+// Notice positions on the map are computed later in the code
+const GET_INITIAL_PLAYERS = gql`
+query {
+  playersTest {
+    ID
+    FirstName
+    LastName
+    Hole
+    HoleLocation
+    Country
+  }
+}
+`;
+
+//
+// The course definition file
 var golfCourse = require('./indy.json')
 
-class Store {
+//
+// This handles the GraphQL calls,
+// filling the Store, and handing off to ShowMap
+export default class App extends React.Component {
 
-  addPlayer(p) {
-    this.players.push(p)
-  }
-
-  updatePlayer(inPlyr) {
-    let plyr = this.playerList.find(p => {
-      return p.ID === inPlyr.ID
-    })
-    plyr.Hole = inPlyr.Hole
-    plyr.HoleLocation = inPlyr.HoleLocation
-  }
-  players = []
-}
-
-decorate(Store, {
-  players: observable,
-  addPlayer: action,
-  updatePlayer: action
-})
-const playerStore = new Store()
-
-
-
-export default class SimpleExample extends React.Component {
-
-  componentWillMount() {
-    thePlayers.map( p => {
-      return playerStore.addPlayer(p)
-    })
-    
-  }
   render() {
-    console.log("l->", playerStore)
+
     return (
-      <ShowMap 
-        playerList={playerStore}
-        golfCourse={golfCourse} 
-      />
+      <Query query={GET_INITIAL_PLAYERS}>
+        {({ data, loading, subscribeToMore }) => {
+          if (!data) {
+            return null;
+          }
+
+          if (loading) {
+            return <span>Loading ...</span>;
+          }
+
+          /* fill the store with initial data */
+          data.playersTest.map(p => {
+            return store.addPlayer(p)
+          })
+
+          /* draw the map */
+          return (
+            <div>
+              <ShowMap
+                thePlayers={store}
+                golfCourse={golfCourse}
+                subscribeToMore={subscribeToMore}
+              />
+              <DevTools />
+            </div>
+          );
+        }}
+      </Query>
     );
   }
 }
