@@ -11,6 +11,8 @@ If you click on a player (one of the toy soldiers) you can see their name.
 
 Notice there are several versions of this repo.  Master was the initial branch. It demonstrates how to use OpenStreet Map.  Branch addMobx shows how to implement both Mobx and GraphQL.
 
+The graphql server is also saved in this branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
+
 # Tech stack:
  
 React
