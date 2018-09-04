@@ -2,14 +2,25 @@
 
 # This is an example of how to use React-Leaflet 
 
-The code opens over a golf course. It shows flag markers and players arranged around different holes. The course is the Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
+The code opens over a golf course. It shows flag markers and players arranged around different holes. 
 
-The players are represented by the toy soldier icons.  The golf course drawn from OpenStreet Map sources.  There is a lot you can do with OpenStreet Map.  This uses a VERY 
+There are 2 different maps:
+
+The Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
+The Army & Navy golf course in Arlington Va. (ArmyNavy.json)
+
+To change between courses: branch master uses indy.json, branch addMobx uses ArmyNavy.json
+
+In the code: change line 45 in src/App.js
+
+The players are represented by the toy soldier icons.  The golf course is drawn from OpenStreet Map sources.  There is a lot you can do with OpenStreet Map.  This uses a VERY 
 plain map tile set.
 
 If you click on a player (one of the toy soldiers) you can see their name.
 
 Notice there are several versions of this repo.  Master was the initial branch. It demonstrates how to use OpenStreet Map.  Branch addMobx shows how to implement both Mobx and GraphQL.
+
+The graphql server is also saved in this branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
 
 # Tech stack:
  
