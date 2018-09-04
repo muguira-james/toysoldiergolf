@@ -41,7 +41,8 @@ query {
 
 //
 // The course definition file
-var golfCourse = require('./indy.json')
+// var golfCourse = require('./indy.json')
+var golfCourse = require('./ArmyNavy.json')
 
 //
 // This handles the GraphQL calls,

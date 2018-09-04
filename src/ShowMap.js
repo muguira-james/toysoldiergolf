@@ -149,18 +149,22 @@ class ShowMap extends React.Component {
 
     // reset the playerDrawing map
     playerDrawingUtils.mapLocationClear()
-
+    let mapLink = 
+      '<a href="http://www.esri.com/">Esri</a>';
+    let wholink = 
+      'i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community';
     //
-    // note the TileLayer stuff is pretty generic Leaflet.  We can do a lot more
+    // note the TileLayer stuff is ESRI.  We can do a lot more
     // in terms of how the map looks!
     return (
       <Map
         center={pos}
         zoom={16}>
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-        />
+          url='http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+          attribution="&copy; '<a href=&quot;http://www.esri.com/&quot;>Esri</a>; contributors"
+          />
+        
         {
           /* draw the flags on the holes */
           course.Features.map((f, n) => {
@@ -183,3 +187,9 @@ class ShowMap extends React.Component {
 // make sure ShowMap is an observer of the Store object
 export default observer(ShowMap);
 
+/*
+this is the default tile set.
+//   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        //   attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+        // />
+      */
