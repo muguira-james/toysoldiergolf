@@ -7,6 +7,7 @@ The code opens over a golf course. It shows flag markers and players arranged ar
 There are 2 different maps:
 
 The Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
+
 The Army & Navy golf course in Arlington Va. (ArmyNavy.json)
 
 To change between courses: branch master uses indy.json, branch addMobx uses ArmyNavy.json
