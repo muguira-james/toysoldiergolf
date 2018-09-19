@@ -2,7 +2,7 @@
 
 # This is an example of how to use React-Leaflet 
 
-The code opens over a golf course. It shows flag markers and players arranged around different holes. 
+The code opens over a golf course. It shows flag markers and players arranged around different holes. This demonstration was created to show mapping technqiues without license constraints (i.e. Google / Bing maps)
 
 Notice there are 2 versions of this repo.  Master was the initial branch. It demonstrates how to use OpenStreet Map.  Branch "addMobx" shows how to implement both Mobx and GraphQL.
 
