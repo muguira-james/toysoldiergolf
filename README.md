@@ -31,7 +31,7 @@ Mobx (v.5)
 
 GraphQL (Apollo 2.X)
 
-# To use:
+# To use (Master Branch):
 
 make sure you have a fairly new node installation (I have node 9.X) 
 
@@ -50,6 +50,16 @@ npm start
 you can also use
 
 cd toysoldiergolf
+
+yarn
+
+yarn start
+
+# To use the addMobx Branch
+
+do the above and 
+
+cd toysoldiergolf/server
 
 yarn
 
