@@ -19,7 +19,11 @@ plain map tile set.
 
 If you click on a player (one of the toy soldiers) you can see their name.
 
-The graphql server is also saved in this branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
+The graphql server is also saved on the "addMobx" branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
+
+# Comming soon 
+
+GraphQL implemented in AWS ServerLess Application Model (SAM)!
 
 # Tech stack:
  
