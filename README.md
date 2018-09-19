@@ -2,28 +2,24 @@
 
 # This is an example of how to use React-Leaflet 
 
-The code opens over a golf course. It shows flag markers and players arranged around different holes. This demonstration was created to show mapping techniques without license constraints (i.e. Google / Bing maps)
-
-Notice there are 2 versions of this repo.  Master was the initial branch. It demonstrates how to use OpenStreet Map.  Branch "addMobx" shows how to implement both Mobx and GraphQL.
+The code opens over a golf course. It shows flag markers and players arranged around different holes. 
 
 There are 2 different maps:
+The Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
+The Army & Navy golf course in Arlington Va. (ArmyNavy.json)
 
-- The Indianapolis Motor Speedway, West 16th Street, Indianapolis, IN (indy.json).
+To change between courses: branch master uses indy.json, branch addMobx uses ArmyNavy.json
 
-- The Army & Navy golf course in Arlington Va. (ArmyNavy.json)
-
-Branch addMobx uses the new map and Army/Navy course.
+In the code: change line 45 in arc/App.js
 
 The players are represented by the toy soldier icons.  The golf course is drawn from OpenStreet Map sources.  There is a lot you can do with OpenStreet Map.  This uses a VERY 
 plain map tile set.
-
+ 
 If you click on a player (one of the toy soldiers) you can see their name.
 
-The graphql server is also saved on the "addMobx" branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
+Notice there are several versions of this repo.  Master was the initial branch. It demonstrates how to use OpenStreet Map.  Branch addMobx shows how to implement both Mobx and GraphQL.
 
-# Comming soon 
-
-GraphQL implemented in AWS ServerLess Application Model (SAM)!
+The graphql server is also saved in this branch. I use express.  I want to thank Robin <rwieruch@fastmail.com> (https://www.robinwieruch.de) for writing great articles on Mobx, graphQL and other material!!!
 
 # Tech stack:
  
@@ -35,7 +31,7 @@ Mobx (v.5)
 
 GraphQL (Apollo 2.X)
 
-# To use:
+# To use (Master Branch):
 
 make sure you have a fairly new node installation (I have node 9.X) 
 
@@ -54,6 +50,16 @@ npm start
 you can also use
 
 cd toysoldiergolf
+
+yarn
+
+yarn start
+
+# To use the addMobx Branch
+
+do the above and 
+
+cd toysoldiergolf/server
 
 yarn
 
