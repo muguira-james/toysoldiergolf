@@ -1,15 +1,18 @@
 /*
-compared to the actual application we wrote for React-Native this is ugly!
+compared to the actual application I wrote for React-Native this is ugly!
 
 The original app used the on device Map to render a satellite view of a golf course
 
 This uses the completely free OpenStreet Map to render the golf course
 
-The original app used high resolution images that are propritery to the sponsor.  This
-uses silly images of toy soldiers. They look bad but you get the ide of where the players
-are rendered on the map.
+The original app used high resolution images that are propritery to the sponsor.  
 
-The flags are from the original app, I should be ok using these.
+The players in this app are silly images of toy soldiers. They look bad but you get 
+the idea of where the players are rendered on the map.
+
+The flags are from the original app.
+
+The players are hard coded here. The branch addMobx uses graphql to bring in the players
 
 */
 import React from 'react'
