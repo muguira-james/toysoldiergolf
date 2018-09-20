@@ -1,7 +1,7 @@
 /*
-compared to the actual application we wrote for React-Native this is not as pretty!
+compared to the actual application I wrote for React-Native this is not as pretty!
 
-The original app used the on device Map to render a satellite view of a golf course
+The original app used the "on device" Map to render a satellite view of a golf course
 
 This uses the completely free OpenStreet Map to render the golf course
 
@@ -10,7 +10,7 @@ the sponsor.
 This uses silly images of toy soldiers. 
 They look bad but you get the idea of where the players are rendered on the map.
 
-The flags are from the original app, I should be ok using these.
+The flags are from the original app.
 
 */
 
