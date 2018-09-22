@@ -23,27 +23,24 @@ import L from 'leaflet'
 import flagImages from './flagImages'
 import playerIcons from './playerIcons'
  
-import { graphql } from 'react-apollo'
-import gql from 'graphql-tag'
-
 var playerDrawingUtils = require("./PlayerDrawingUtils.js");
 
-//
+
 // as you can see from this structure the players are on hole {1, 2, 3, 4}
-// const plyr = [
-//   {FirstName: "Joan", LastName: "Jet", ID: 1, Hole: 1, HoleLocation: "TEE"},
-//   {FirstName: "Ruth", LastName: "Crist", ID: 2, Hole: 1, HoleLocation: "TEE"},
-//   {FirstName: "Beth", LastName: "Flick", ID: 3, Hole: 1, HoleLocation: "TEE"},
-//   {FirstName: "Julie", LastName: "Ant", ID: 4, Hole: 1, HoleLocation: "FWY"},
-//   {FirstName: "Ginny", LastName: "Grey", ID: 5, Hole: 1, HoleLocation: "FWY"},
-//   {FirstName: "Paula", LastName: "Lamb", ID: 6, Hole: 1, HoleLocation: "GRN"},
-//   {FirstName: "Ingid", LastName: "Jones", ID: 7, Hole: 2, HoleLocation: "TEE"},
-//   {FirstName: "Kelly", LastName: "Smith", ID: 8, Hole: 2, HoleLocation: "FWY"},
-//   {FirstName: "Eilean", LastName: "Rams", ID: 9, Hole: 2, HoleLocation: "GRN"},
-//   {FirstName: "Barb", LastName: "Sharp", ID: 10, Hole: 4, HoleLocation: "FWY"},
-//   {FirstName: "Carol", LastName: "Adams", ID: 11, Hole: 4, HoleLocation: "FWY"},
-//   {FirstName: "Faith", LastName: "Hope", ID: 12, Hole: 4, HoleLocation: "GRN"}
-// ]
+const players = [
+  {FirstName: "Joan", LastName: "Jet", ID: 1, Hole: 1, HoleLocation: "TEE"},
+  {FirstName: "Ruth", LastName: "Crist", ID: 2, Hole: 1, HoleLocation: "TEE"},
+  {FirstName: "Beth", LastName: "Flick", ID: 3, Hole: 1, HoleLocation: "TEE"},
+  {FirstName: "Julie", LastName: "Ant", ID: 4, Hole: 1, HoleLocation: "FWY"},
+  {FirstName: "Ginny", LastName: "Grey", ID: 5, Hole: 1, HoleLocation: "FWY"},
+  {FirstName: "Paula", LastName: "Lamb", ID: 6, Hole: 1, HoleLocation: "GRN"},
+  {FirstName: "Ingid", LastName: "Jones", ID: 7, Hole: 2, HoleLocation: "TEE"},
+  {FirstName: "Kelly", LastName: "Smith", ID: 8, Hole: 2, HoleLocation: "FWY"},
+  {FirstName: "Eilean", LastName: "Rams", ID: 9, Hole: 2, HoleLocation: "GRN"},
+  {FirstName: "Barb", LastName: "Sharp", ID: 10, Hole: 4, HoleLocation: "FWY"},
+  {FirstName: "Carol", LastName: "Adams", ID: 11, Hole: 4, HoleLocation: "FWY"},
+  {FirstName: "Faith", LastName: "Hope", ID: 12, Hole: 4, HoleLocation: "GRN"}
+]
 
 /*
   Draw a Leaflet map with the supplied Course file
@@ -118,16 +115,6 @@ class ShowMap extends React.Component {
     // reset the playerDrawing map
     playerDrawingUtils.mapLocationClear()
 
-    if (this.props.zData && this.props.zData.loading) {
-      return <div style={{marginTop:60}}>Loading</div>
-    }
-  
-    // 2 error
-    if (this.props.zData && this.props.zData.error) {
-      console.log("error-->", this.props.zData.error)
-      return <div style={{marginTop: 30}}>Error</div>
-    
-    } 
     return (
       <Map
         center={pos}
@@ -142,7 +129,7 @@ class ShowMap extends React.Component {
             })
           }
           {
-            this.props.zData.players.map((p, n) => {
+            players.map((p, n) => {
               let name = p.FirstName + " " + p.LastName
               let plyr = this.createPlayer(n+1, name, p.Hole, p.HoleLocation, course)
               return plyr
@@ -153,29 +140,6 @@ class ShowMap extends React.Component {
   }
 }
 
-//
-// This is the graphql magic
-// 
-// This sets up the query for data.  It uses ggl - NOTE the back quotes
-const JAM_QUERY = gql`
-  # 2
-  query {
-      players {
-          FirstName
-          LastName
-          Hole
-          HoleLocation
-          Country
-      }
-  }
-`
-
-// 3
-// wrap the ShowMap component and make it a HOC.  The 'JAM_Query' can be anything you
-// want, just be consistent with how you named the query. The 'zData' item is how
-// the data will show up in the ShowMap component
-export default graphql(JAM_QUERY, { name: 'zData', options: {pollInterval: 60000} }) (ShowMap)
-
-// export default ShowMap;
+export default ShowMap;
 
     
